@@ -13,4 +13,6 @@ jobs:
 
       # Add your task steps here
       - name: Run the app
-      #   run: node run.js
+        run: |
+          #!/bin/bash
+          node run.js
