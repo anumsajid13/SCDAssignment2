@@ -10,16 +10,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+       
 
       # Add your task steps here
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '14'
 
-      - name: Run the app
-        run: |
-          #!/bin/bash
-          node run.js
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run App
+        run: node run.js
