@@ -20,6 +20,6 @@ jobs:
       # Step 2: Generate documentation from comments in src/utils.js
       - name: Generate documentation
         run: |
-          npx jsdoc-to-markdown ./src/utils.js > ./generated_docs/docs.md
+          npx jsdoc-to-markdown ./src/utils.js > ./docs.md
 
       
