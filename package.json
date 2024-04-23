@@ -27,5 +27,8 @@
   "homepage": "https://github.com/PKUPI/heavens-above#readme",
   "engines": {
     "node": ">=12.10.0"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^8.0.1"
   }
 }
