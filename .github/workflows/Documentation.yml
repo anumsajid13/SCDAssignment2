@@ -22,4 +22,12 @@ jobs:
         run: |
           npx jsdoc-to-markdown ./src/utils.js > ./docs.md
 
+      - name: Add, commit, and push documentation file
+        run: |
+          git config --local user.email "anumsajid13@.com"
+          git config --local user.name "anumsajid13"
+          git add docs.md
+          git commit -m "Update docs.md documentation"
+          git push
+
       
