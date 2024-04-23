@@ -1,0 +1,29 @@
+name: Documentation Generation
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 1: Install JSDoc
+      - name: Install JSDoc
+        run: npm install --save-dev jsdoc
+
+      # Step 2: Generate documentation from comments in src/util.js
+      - name: Generate documentation
+        run: |
+          npx jsdoc src/util.js -d docs
+
+      # Step 3: Save documentation to a separate document file
+      - name: Save documentation to file
+        run: |
+          mkdir -p generated_docs
+          mv docs/* generated_docs/docs.txt
