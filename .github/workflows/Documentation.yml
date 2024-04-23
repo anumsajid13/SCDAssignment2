@@ -13,15 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 1: Install JSDoc
-      - name: Install JSDoc
-        run: npm install --save-dev jsdoc
+      # Step 1: Install JSDoc and jsdoc-to-markdown
+      - name: Install JSDoc and jsdoc-to-markdown
+        run: npm install --save-dev jsdoc jsdoc-to-markdown
 
-      # Step 2: Generate documentation from comments in src/util.js
+      # Step 2: Generate documentation from comments in src/utils.js
       - name: Generate documentation
         run: |
-          npx jsdoc src/utils.js -d generated_docs
+          npx jsdoc-to-markdown src/utils.js > generated_docs/docs.md
 
       # Step 3: Save documentation to a separate document file
       - name: Save documentation to file
-        run: mv generated_docs/docs.txt ./docs.txt
+        run: mv generated_docs/docs.md ./docs.md
