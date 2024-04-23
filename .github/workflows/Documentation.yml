@@ -25,5 +25,4 @@ jobs:
       # Step 3: Save documentation to a separate document file
       - name: Save documentation to file
         run: |
-          mkdir -p generated_docs
-          mv generated_docs/docs.txt ./docs.txt
+          run: mv generated_docs/* generated_docs/
