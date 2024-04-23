@@ -24,4 +24,4 @@ jobs:
 
       # Step 3: Save documentation to a separate document file
       - name: Save documentation to file
-        run: mv generated_docs/* generated_docs/
+        run: mv generated_docs/docs.txt ./docs.txt
