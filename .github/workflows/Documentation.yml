@@ -26,4 +26,4 @@ jobs:
       - name: Save documentation to file
         run: |
           mkdir -p generated_docs
-          mv docs/* generated_docs/docs.txt
+          mv generated_docs/docs.txt ./docs.txt
