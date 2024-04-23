@@ -20,7 +20,7 @@ jobs:
       # Step 2: Generate documentation from comments in src/util.js
       - name: Generate documentation
         run: |
-          npx jsdoc src/utils.js -d docs
+          npx jsdoc src/utils.js -d generated_docs
 
       # Step 3: Save documentation to a separate document file
       - name: Save documentation to file
