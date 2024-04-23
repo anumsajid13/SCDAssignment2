@@ -24,8 +24,8 @@ jobs:
 
       - name: Add, commit, and push documentation file
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --local user.email "anumsajid13@gmail.com"
+          git config --local user.name "anumsajid13"
           git add docs.md
           git commit -m "Update docs.md documentation"
           git push https://$GITHUB_ACTOR:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:main
