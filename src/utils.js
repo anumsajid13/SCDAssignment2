@@ -5,6 +5,7 @@ function getTimestamp(time) {
 	return parseInt(arr[0]) * 3600 + parseInt(arr[1]) * 60 + parseInt(arr[2]);
 }
 
+//this is  a post_options function
 function post_options(target, opt) {
 	return {
 		url: `https://www.heavens-above.com/${target}lat=39.9042&lng=116.4074&loc=%E5%8C%97%E4%BA%AC%E5%B8%82&alt=52&tz=ChST`,
@@ -28,6 +29,7 @@ function post_options(target, opt) {
 	};
 }
 
+//this is  a get_options function
 function get_options(target) {
 	return {
 		url: `https://www.heavens-above.com/${target}lat=39.9042&lng=116.4074&loc=%E5%8C%97%E4%BA%AC%E5%B8%82&alt=52&tz=ChST`,
@@ -46,6 +48,8 @@ function get_options(target) {
 	};
 }
 
+
+//this is  a image_options function
 function image_options(target) {
 	return {
 		url: target,
