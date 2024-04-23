@@ -15,7 +15,7 @@ jobs:
 
       # Step 1: Install JSDoc and jsdoc-to-markdown
       - name: Install JSDoc and jsdoc-to-markdown
-        run: npm install --save-dev jsdoc jsdoc-to-markdown
+        run: npm install --save-dev jsdoc-to-markdown
 
       # Step 2: Generate documentation from comments in src/utils.js
       - name: Generate documentation
