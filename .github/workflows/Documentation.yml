@@ -28,6 +28,6 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add docs.md
           git commit -m "Update documentation"
-          git pushgit HEAD:main
+          git push
 
       
