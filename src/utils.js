@@ -2,7 +2,7 @@ const crypto = require('crypto');
 
 /**
  * Converts a time string in the format "HH:MM:SS" to seconds.
- * @param {string} time - The time string to convert.
+ * @param {string} time - The time string to convert it.
  * @returns {number} The time in seconds.
  */
 
@@ -14,7 +14,7 @@ function getTimestamp(time) {
 /**
  * Generates options for making a POST request.
  * @param {string} target - The target URL.
- * @param {Object} opt - The request options.
+ * @param {Object} opt - The request options is given
  * @returns {Object} The POST options.
  */
 function post_options(target, opt) {
