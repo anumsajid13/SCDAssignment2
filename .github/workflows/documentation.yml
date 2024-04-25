@@ -18,7 +18,7 @@ jobs:
 
       - name: Generate documentation
         run: |
-          npx jsdoc-to-markdown ./src/utils.js > ./src/documentation.md
+          npx jsdoc-to-markdown ./src/utils.js > ./docs.md
 
       - name: Check for changes or create Markdown file
         run: |
