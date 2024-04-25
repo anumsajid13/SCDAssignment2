@@ -3,7 +3,7 @@ name: Documentation Generation
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
+      - main  
 
 jobs:
   generate-docs:
@@ -31,3 +31,10 @@ jobs:
           git add .
           git commit -m "Update documentation"
           git push origin main
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
