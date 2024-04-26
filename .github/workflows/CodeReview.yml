@@ -44,15 +44,8 @@ jobs:
             } catch (error) {
               console.error('Error creating comment:', error);
             }
-
-      - name: Save feedback to file
+      -name: View Feedback
         run: |
-          echo "Code review checks have been completed. Please review the repository." > ./Codereview.txt 
+          echo "Code review checks have been completed. Please review the repository."
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add . || true
-          git commit -m "Update code review " || true
-          git push origin main || true
+      
