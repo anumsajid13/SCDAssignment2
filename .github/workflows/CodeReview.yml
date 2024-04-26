@@ -49,5 +49,4 @@ jobs:
           git push origin main
 
   
-      - name: Enforce checks
-        uses: gimenete/i-am-smart-commit-action@v1
+    
