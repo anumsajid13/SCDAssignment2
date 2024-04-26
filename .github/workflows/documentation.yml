@@ -20,6 +20,9 @@ jobs:
         run: |
           npx jsdoc-to-markdown ./src/utils.js > ./docs.md
 
+      - name: Pull changes from main branch
+        run: git pull origin main
+
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions"
