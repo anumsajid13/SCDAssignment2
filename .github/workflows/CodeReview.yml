@@ -9,37 +9,37 @@ on:
 
 jobs:
   code-review-push:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'  # Only run for pushes to main branch
+  runs-on: ubuntu-latest
+  if: github.event_name == 'push'  # Only run for pushes to main branch
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Check coding standards
-        run: |
-          npm run lint || true
+    - name: Check coding standards
+      run: |
+        npm run lint || true
 
-      - name: Scan for security vulnerabilities
-        run: |
-          npm install snyk
-          npx snyk test || true
+    - name: Scan for security vulnerabilities
+      run: |
+        npm install snyk
+        npx snyk test || true
 
-      - name: Provide feedback
-        id: feedback
-        uses: actions/github-script@0.9.0
-        with:
-          script: |
-            try {
-              github.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: 'Code review checks have been completed for this push. Please review the results.'
-              });
-            } catch (error) {
-              console.error('Error creating comment:', error);
-            }
+    - name: Provide feedback
+      id: feedback
+      uses: actions/github-script@0.9.0
+      with:
+        script: |
+          try {
+            github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,  # Use issue number for push event
+              body: 'Code review checks have been completed for this push. Please review the results.'
+            });
+          } catch (error) {
+            console.error('Error creating comment:', error);
+          }
 
   code-review-pull-request:
     runs-on: ubuntu-latest
