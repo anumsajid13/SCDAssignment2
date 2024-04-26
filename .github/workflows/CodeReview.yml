@@ -20,9 +20,9 @@ jobs:
           npm run lint || true
 
       - name: Analyze code quality
-        run: |
-          npm install sonarcloud-github-action
-          npx sonarcloud-github-action
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Scan for security vulnerabilities
         run: |
