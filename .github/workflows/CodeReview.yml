@@ -46,6 +46,10 @@ jobs:
               console.error('Error creating comment:', error);
             }
 
+      - name: Debug feedback output
+        run: |
+          echo "${{ steps.feedback.outputs.body }}"
+          
       - name: Save feedback to file
         run: |
           echo "${{ steps.feedback.outputs.body }}" > Codereview.txt || true
