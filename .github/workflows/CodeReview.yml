@@ -29,14 +29,20 @@ jobs:
         with:
           script: |
             try {
+              const { data: pullRequest } = await github.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.payload.pull_request.number
+              });
+
               github.issues.createComment({
-                issue_number: context.issue.number,
+                issue_number: pullRequest.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: 'Code review checks have been completed. Please review the results.'
-              })
+              });
             } catch (error) {
-              console.error('Error creating comment:', error)
+              console.error('Error creating comment:', error);
             }
 
       - name: Save feedback to file
