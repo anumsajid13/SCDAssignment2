@@ -1,0 +1,22 @@
+name: Generate Release Notes
+
+on:
+  push:
+      branches:
+      - main  
+
+jobs:
+  generate-release-notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Generate Release Notes
+        run: |
+          echo "Generating release notes..."
+          git log --oneline v1.0.0..HEAD > ./commit_messages.txt
+
+
+     
