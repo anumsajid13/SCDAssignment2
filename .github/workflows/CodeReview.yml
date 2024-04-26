@@ -25,6 +25,7 @@ jobs:
           npx snyk test || true
 
       - name: Provide feedback
+        id: feedback
         uses: actions/github-script@0.9.0
         with:
           script: |
