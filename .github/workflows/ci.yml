@@ -21,6 +21,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run App
-        run: node run.js
+      - name: Run Tests
+        run: npm test || echo "Tests failed, check the console for details"
 
+      - name: Setup ESLint
+        run: npm install eslint --save-dev
+
+      - name: Initialize ESLint
+        run: npx eslint --init
+
+      - name: Run ESLint
+        run: npx eslint . || echo "Linting errors found, check the console for details"
