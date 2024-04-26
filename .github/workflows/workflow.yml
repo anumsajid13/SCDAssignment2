@@ -16,7 +16,7 @@ jobs:
       - name: Generate Release Notes
         run: |
           echo "Generating release notes..."
-          git log --oneline > ./commit_messages.txt
+          git log --oneline >> ./commit_messages.txt
 
       - name: Commit and push changes
         run: |

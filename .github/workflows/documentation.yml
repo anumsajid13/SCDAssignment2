@@ -20,10 +20,6 @@ jobs:
         run: |
           npx jsdoc-to-markdown ./src/utils.js > ./docs.md
 
-      - name: Check for changes or create Markdown file
-        run: |
-          git diff --exit-code || touch ./src/documentation.md
-
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions"
