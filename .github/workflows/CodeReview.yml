@@ -47,7 +47,7 @@ jobs:
 
       - name: Save feedback to file
         run: |
-          echo "Code review checks have been completed. Please review the repository." > Codereview.txt || true
+          echo "Code review checks have been completed. Please review the repository." > ./Codereview.txt 
 
       - name: Commit and push changes
         run: |
