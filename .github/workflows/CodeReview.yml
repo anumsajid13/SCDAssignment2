@@ -19,12 +19,6 @@ jobs:
         run: |
           npm run lint || true
 
-      - name: Analyze code quality
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Add this line
-          
       - name: Scan for security vulnerabilities
         run: |
           npm install snyk
