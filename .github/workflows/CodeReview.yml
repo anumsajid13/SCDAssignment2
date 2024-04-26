@@ -21,7 +21,7 @@ jobs:
       - name: Analyze code quality
         uses: sonarsource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Scan for security vulnerabilities
         run: npx snyk test
