@@ -44,8 +44,7 @@ jobs:
             } catch (error) {
               console.error('Error creating comment:', error);
             }
-      -name: View Feedback
+            
+      - name: View Feedback
         run: |
           echo "Code review checks have been completed. Please review the repository."
-
-      
