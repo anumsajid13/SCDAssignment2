@@ -8,9 +8,8 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  code-review-push:
+  code-review:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'  # Only run for pushes to main branch
 
     steps:
       - name: Checkout code
@@ -26,40 +25,6 @@ jobs:
           npx snyk test || true
 
       - name: Provide feedback
-        id: feedback
-        uses: actions/github-script@0.9.0
-        with:
-          script: |
-            try {
-              github.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,  # Use issue number for push event
-                body: 'Code review checks have been completed for this push. Please review the results.'
-              });
-            } catch (error) {
-              console.error('Error creating comment:', error);
-            }
-
-  code-review-pull-request:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'  # Only run for pull requests
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Check coding standards
-        run: |
-          npm run lint || true
-
-      - name: Scan for security vulnerabilities
-        run: |
-          npm install snyk
-          npx snyk test || true
-
-      - name: Provide feedback
-        id: feedback
         uses: actions/github-script@0.9.0
         with:
           script: |
@@ -74,19 +39,15 @@ jobs:
                 issue_number: pullRequest.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: 'Code review checks have been completed for this pull request. Please review the results.'
+                body: 'Code review checks have been completed. Please review the results.'
               });
             } catch (error) {
               console.error('Error creating comment:', error);
             }
 
-      - name: Debug feedback output
-        run: |
-          echo "${{ steps.feedback.outputs.body }}"
-
       - name: Save feedback to file
         run: |
-          echo "${{ steps.feedback.outputs.body }}" > Codereview.txt || true
+          echo "Code review checks have been completed. Please review the repository." > Codereview.txt || true
 
       - name: Commit and push changes
         run: |
