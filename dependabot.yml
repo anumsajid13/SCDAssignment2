@@ -32,13 +32,13 @@ jobs:
         uses: github/dependabot-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          directory: "/" # Location of package manifests
+          directory: "/" 
           package-manager: "auto"
-          versioning-strategy: "increase" # Increase to always use the latest version
-          commit-message: "chore: Bump dependencies" # Customize commit message as needed
-          commit-prefix: "dependabot" # Customize commit prefix as needed
-          create-pr: true # Specify to create pull requests
-          schedule: "daily" # Adjust the update frequency as needed
+          versioning-strategy: "increase"
+          commit-message: "chore: Bump dependencies" 
+          commit-prefix: "dependabot" 
+          create-pr: true 
+          schedule: "daily" 
 
   test:
     runs-on: ubuntu-latest

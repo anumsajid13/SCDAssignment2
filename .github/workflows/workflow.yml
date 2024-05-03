@@ -1,3 +1,5 @@
+
+#Workflow to automate a specific task or process
 name: Generate Release Notes
 
 on:
